@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="isAuthenticated; else showLogin">
+    <p><strong>Authenticated?</strong> {{ isAuthenticated }}</p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>User Data</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <pre>{{ userData$ | async | json }}</pre>
+      </ion-card-content>
+    </ion-card>
+    <ion-button expand="full" (click)="logout()">Logout</ion-button>
+  </ng-container>
+
+  <ng-template #showLogin>
+    <ion-button expand="full" (click)="login()">Login with Cognito</ion-button>
+  </ng-template>
+</ion-content>
