@@ -17,14 +17,11 @@ export class AppComponent {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
       // This listens for the redirect URL (e.g., "myapp://callback?code=...")
       console.log('App URL Open', event);
-      if (event.url) {
-        const url = new URL(event.url);
-        if (url.protocol === 'myapp:' && url.pathname === '/callback') {
-          // Notify the OIDC library to process the redirect
-          this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated }) => {
-            console.log('User authenticated in Capacitor app:', isAuthenticated);
-          });
-        }
+      if (event.url.includes('myapp') && event.url.includes('callback')) {
+        // Notify the OIDC library to process the redirect
+        this.oidcSecurityService.checkAuth(event.url).subscribe(({ isAuthenticated }) => {
+          console.log('User authenticated in Capacitor app:', isAuthenticated);
+        });
       }
     });
     this.oidcSecurityService.checkAuth().subscribe(({ isAuthenticated }) => {
