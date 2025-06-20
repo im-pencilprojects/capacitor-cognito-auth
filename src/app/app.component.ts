@@ -15,7 +15,7 @@ export class AppComponent {
     private oidcSecurityService: OidcSecurityService
   ) {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
-      // This listens for the redirect URL (e.g., "podium://callback?code=...")
+      // This listens for the redirect URL (e.g., "myapp://callback?code=...")
       console.log('App URL Open', event);
       if (event.url) {
         const url = new URL(event.url);

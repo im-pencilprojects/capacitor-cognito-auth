@@ -68,12 +68,3 @@ testem.log
 Thumbs.db
 
 .angular
-
-# Credentials files
-http-client.private.env.json
-google-services.json
-GoogleService-Info.plist
-_notes/**/*.json
-_notes/**/*.der
-*.cert
-*.pem
