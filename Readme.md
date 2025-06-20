@@ -1,7 +1,9 @@
 Angular/Ionic/Capacitor application to demonstrate integration with AWS Cognito User Pool
 
 Update the environment file with your AWS UserPool credentials.
-Ensure the app deeplink is added to the UserPool client app as a redirect URL and logout callback url
+Ensure the app deep links are added to the UserPool client app as a redirect URL and logout callback url
+environment.authConfig.redirectUrl > AWS Cognito App Client Allowed callback URLs
+environment.authConfig.postLogoutRedirectUri > AWS Cognito App Client Allowed sign-out URLs
 
 Add Capacitor Android and iOS to your project and then update the AndroidManifest.xml and iOS Info.plist to set up Deep Links
 
